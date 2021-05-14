@@ -6,6 +6,7 @@ You can use it as a basic project for Authentication/Authorization and CRUD oper
 
 - [Installation](#installation)
 - [Test](#test)
+- [Documentation](#documentation)
 - [Structure](#structure)
 - [Support](#support)
 - [Contributing](#contributing)
@@ -22,7 +23,7 @@ docker-compose up
 ```
 git clone https://github.com/mJiyan/nodejs-blog.git
 cd nodejs-blog
-yarn install
+yarn
 # Prepare your environment variables with generating .env file as .env.example file
 yarn start
 ```
@@ -31,9 +32,21 @@ yarn start
 ```
 git clone https://github.com/mJiyan/nodejs-blog.git
 cd nodejs-blog
-yarn install
+yarn
+# Prepare your environment variables with generating .env file as .env.example file
 yarn test
 ```
+
+## Documentation
+```
+git clone https://github.com/mJiyan/nodejs-blog.git
+cd nodejs-blog
+yarn
+# Prepare your environment variables with generating .env file as .env.example file
+yarn start
+Open the: http://localhost:8081/api-docs
+```
+
 
 ## Structure
 ```

@@ -25,7 +25,7 @@ git clone https://github.com/mJiyan/nodejs-blog.git
 cd nodejs-blog
 yarn
 
-# Prepare your environment variables with generating .env file as like .env.example file
+# Prepare your environment variables with generating .env file as like in the .env.example file
 yarn start
 ```
 
@@ -35,7 +35,7 @@ git clone https://github.com/mJiyan/nodejs-blog.git
 cd nodejs-blog
 yarn
 
-# Prepare your environment variables with generating .env file as like .env.example file
+# Prepare your environment variables with generating .env file as like in the .env.example file
 yarn test
 ```
 
@@ -46,7 +46,7 @@ git clone https://github.com/mJiyan/nodejs-blog.git
 cd nodejs-blog
 yarn
 
-#Prepare your environment variables with generating .env file as like .env.example file
+# Prepare your environment variables with generating .env file as like in the .env.example file
 yarn start
 
 Open the: 

@@ -1,0 +1,18 @@
+{
+    "user": {
+        "email": "mjiyan@mail.com",
+        "password": "pass123123",
+        "name_surname": "Mahmut Jiyan Aslan",
+        "age": 25,
+        "gender": "Male",
+        "kind": "Admin"
+    },
+
+    "blog": {
+        "user_id": "userId",
+        "title": "Lorem Lipsum",
+        "content": "In this article we will be writing a simple example on",
+        "isPublished": true
+    }
+
+}

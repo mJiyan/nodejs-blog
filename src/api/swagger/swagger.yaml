@@ -1,0 +1,351 @@
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    User:
+      type: object
+      required:
+        - email
+        - password
+        - name_surname
+        - kind
+      properties:
+        id:
+          type: string
+          example: 1
+          description: The auto-generated id of the user
+        email:
+          type: string
+          example: 'mjiyanaslan@gmail.com'
+          description: The user email
+        password:
+          type: string
+          example: 'd5fE_asz'
+          description: The user password
+        name_surname:
+          type: string
+          example: 'M. Jiyan Aslan'
+          description: The user name_surname
+        kind:
+          type: string
+          example: 'Blogger'
+          description: The user kind
+        age:
+          type: number
+          example: 25
+          description: The user age
+        gender:
+          type: string
+          example: 'Male'
+          description: The user gender
+    Blog:
+      type: object
+      required:
+        - title
+      properties:
+        id:
+          type: string
+          description: The auto-generated id of the blog
+        title:
+          type: string
+          description: The blog title
+        content:
+          type: string
+          description: The blog content
+        isPublished:
+          type: boolean
+          description: Is the blog published
+/register:
+  post:
+    summary: Register a new user
+    parameters:
+     - in: body
+       name: body
+       description: In order to manage blogs you have to sign-in
+       required: true
+       schema:
+         $ref: "#/definitions/User"
+    tags: [Auth]
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/definitions/User"
+    responses:
+      200:
+        description: The user was successfully registered
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  example: '609583abc4b8c948d64a15ed'
+      500:
+        description: Some server error
+/signin:
+   post:
+     summary: The user sign-ins with its email and password
+     parameters:
+      - in: body
+        name: body
+        description: In order to manage blogs you have to sign-in
+        required: true
+        schema:
+          $ref: "#/definitions/UserSignIn"
+     tags: [Auth]
+     requestBody:
+      required: false
+      content:
+        application/json:
+          schema:
+            $ref: "#/definitions/UserSignIn"
+     responses:
+       200:
+         description: The user signed in
+         content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                  example: true
+                message:
+                  type: string
+                  example: "Authentication successful"
+                kind:
+                  type: string
+                  example: "Blogger"
+                token:
+                  type: string
+                  example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJraW5kIjoiQmxvZ2dlciIsImlkIjoiNjA5NTg4NDgyYzBkNWY0OWE0M2Y5OWVlIiwiaWF0IjoxNjIwNDUyNjk4fQ.R9UNKhX3jmvRVJdIbidL8lTVsW5C4qaTYPz9TX95nZk"
+       404:
+         description: The user was not found
+/signout:
+  post:
+    summary: The user sign-outs according to its ID.
+    tags: [Auth]
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+                example: '609588482c0d5f49a43f99ee'
+    responses:
+      200:
+        description: The user signed out
+      404:
+        description: The user was not found
+/blogs:
+  get:
+    security:
+      - bearerAuth: []
+    summary: Returns the list of all the blogs
+    tags: [Blogs]
+    responses:
+      200:
+        description: The list of the blogs
+        content:
+          application/json:
+            schema:
+              $ref: "#/definitions/Blog"
+  post:
+    security:
+      - bearerAuth: []
+    summary: Create a new blog
+    tags: [Blogs]
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/definitions/Blog"
+    responses:
+      200:
+        description: The blog was successfully created
+        content:
+          application/json:
+            schema:
+              $ref: "#/definitions/Blog"
+
+      500:
+        description: Some server error
+        
+/blog/{id}:
+  get:
+    security:
+      - bearerAuth: []
+    summary: Get the blog by id
+    tags: [Blogs]
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          example: '6096243862273f5a7b75476d'
+        required: true
+        description: The blog id
+    responses:
+      200:
+        description: The blog description by id
+        content:
+          application/json:
+            schema:
+              $ref: "#/definitions/Blog"
+      404:
+        description: The blog was not found
+  put:
+    security:
+      - bearerAuth: []
+    summary: Update the blog by the id
+    tags: [Blogs]
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          example: '6096243862273f5a7b75476d'
+        required: true
+        description: The blog id
+    requestBody:
+      required: false
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              isPublished:
+                type: boolean
+                example: true
+    responses:
+      200:
+        description: The blog was updated
+        content:
+          application/json:
+            schema:
+              $ref: "#/definitions/Blog"
+      404:
+        description: The blog was not found
+      500:
+        description: Some error happened
+  delete:
+    security:
+      - bearerAuth: []
+    summary: Remove the blog by id
+    tags: [Blogs]
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          example: '60960d07c3648358886572aa'
+        required: true
+        description: The blog id
+    responses:
+      200:
+        description: The blog is deleted
+        schema:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '60960d07c3648358886572aa'
+      404:
+        description: The blog is not found
+
+/users:
+  get:
+    security:
+      - bearerAuth: []
+    summary: Get the user list
+    tags: [Users]
+    responses:
+      200:
+        description: The list of the users
+        content:
+          application/json:
+            schema:
+              $ref: "#/definitions/User"
+/user/{id}:
+  delete:
+    security:
+      - bearerAuth: []
+    summary: Remove the user by id (only admin can delete)
+    tags: [Users]
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          example: '609588482c0d5f49a43f99ee'
+        required: true
+        description: The user id
+    responses:
+      200:
+        description: The user is deleted
+        schema:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '60960d07c3648358886572aa'
+      404:
+        description: The blog is not found
+definitions:
+  User:
+    type: "object"
+    properties:
+      email:
+        type: string
+        example: "mjiyanaslan@gmail.com"
+      password:
+        type: string
+        example: "d5fE_asz"
+      name_surname:
+        type: string
+        example: 'M. Jiyan Aslan'
+      kind:
+        type: string
+        example: 'Admin'
+      age:
+        type: integer
+        example: 25
+      gender:
+        type: string
+        example: 'Male'
+  UserSignIn:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+        example: "mjiyanaslan@gmail.com"
+      password:
+        type: "string"
+        example: "d5fE_asz"
+  Blog:
+    type: "object"
+    properties:
+      user_id:
+        type: string
+        example: '609588482c0d5f49a43f99ee'
+      title:
+        type: string
+        example: 'Music is life'
+      content:
+        type: string
+        example: 'Music is life Life, life, life Come again E-li-phant'
+      isPublished:
+        type: boolean
+        example: true
+

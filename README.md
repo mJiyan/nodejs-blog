@@ -13,14 +13,14 @@ You can use it as a basic project for Authentication/Authorization and CRUD oper
 
 ## Installation
 ### with Docker
-```
+```sh
 git clone https://github.com/mJiyan/nodejs-blog.git
 cd nodejs-blog
 docker-compose up
 ```
 
 ### manually
-```
+```sh
 git clone https://github.com/mJiyan/nodejs-blog.git
 cd nodejs-blog
 yarn
@@ -30,7 +30,7 @@ yarn start
 ```
 
 ## Test
-```
+```sh
 git clone https://github.com/mJiyan/nodejs-blog.git
 cd nodejs-blog
 yarn
@@ -41,12 +41,12 @@ yarn test
 
 
 ## Documentation
-```
+```sh
 git clone https://github.com/mJiyan/nodejs-blog.git
 cd nodejs-blog
 yarn
 
-# Prepare your environment variables with generating .env file as like in the .env.example file
+## Prepare your environment variables with generating .env file as like in the .env.example file
 yarn start
 
 Open the: 

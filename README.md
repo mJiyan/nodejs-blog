@@ -44,7 +44,7 @@ cd nodejs-blog
 yarn
 # Prepare your environment variables with generating .env file as .env.example file
 yarn start
-Open the: http://localhost:8081/api-docs
+Open the: **http://localhost:8081/api-docs**
 ```
 
 

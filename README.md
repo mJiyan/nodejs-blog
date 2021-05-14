@@ -102,9 +102,7 @@ yarn start
 ├─ docker-compose.yaml
 ├─ Dockerfile
 ├─ LICENSE
-├─ package.json
-├─ README
-└─ yarn.lock
+└─ package.json
 ```
 
 ## Support

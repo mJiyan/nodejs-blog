@@ -49,8 +49,7 @@ yarn
 ## Prepare your environment variables with generating .env file as like in the .env.example file
 yarn start
 
-Open the: 
-    http://localhost:8081/api-docs
+## Then open the: http://localhost:8081/api-docs
 ```
 
 

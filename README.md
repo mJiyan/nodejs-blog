@@ -2,7 +2,7 @@
 
 You can use it as a basic project for Authentication/Authorization and CRUD operations. 
 
-Before start do not forget to create an .env file like in the .env.example file.
+Before start, do not forget to create an .env file like in the .env.example file.
 
 ## Table of Contents
 

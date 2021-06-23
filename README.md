@@ -19,7 +19,7 @@ Before you begin, do not forget create an .env file, such as an .env.example fil
 ```sh
 git clone https://github.com/mJiyan/nodejs-blog.git
 cd nodejs-blog
-docker-compose up
+docker-compose up --build
 ```
 
 ### manually

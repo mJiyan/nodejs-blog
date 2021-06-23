@@ -1,6 +1,8 @@
 # NodeJS Blog
 
-You can use it as a basic project for Authentication/Authorization and CRUD operations.
+You can use it as a basic project for Authentication/Authorization and CRUD operations. 
+
+Before start do not forget to create an .env file like in the .env.example file.
 
 ## Table of Contents
 
@@ -25,7 +27,7 @@ git clone https://github.com/mJiyan/nodejs-blog.git
 cd nodejs-blog
 yarn
 
-## Prepare your environment variables with generating .env file as like in the .env.example file
+## Prepare your environment variables with generating .env file like in the .env.example file
 yarn start
 ```
 
@@ -35,7 +37,7 @@ git clone https://github.com/mJiyan/nodejs-blog.git
 cd nodejs-blog
 yarn
 
-## Prepare your environment variables with generating .env file as like in the .env.example file
+## Prepare your environment variables with generating .env file like in the .env.example file
 yarn test
 ```
 
@@ -46,7 +48,7 @@ git clone https://github.com/mJiyan/nodejs-blog.git
 cd nodejs-blog
 yarn
 
-## Prepare your environment variables with generating .env file as like in the .env.example file
+## Prepare your environment variables with generating .env file like in the .env.example file
 yarn start
 
 ## Then open the: http://localhost:8081/api-docs

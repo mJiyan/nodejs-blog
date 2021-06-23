@@ -33,7 +33,7 @@
   },
   "scripts": {
     "start": "nodemon -r esm src/app.js",
-    "test": "jest ./test/api/controllers/index.test.js --forceExit"
+    "test": "jest ./__test__/api/controllers/index.test.js --forceExit"
   },
   "jest": {
     "testEnvironment": "node",
